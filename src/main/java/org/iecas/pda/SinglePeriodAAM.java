@@ -4,22 +4,23 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.iecas.pda.model.Dmu;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static java.lang.Math.sqrt;
 import static java.lang.Math.exp;
+import static java.lang.Math.sqrt;
+
 /**
  * Created by gaufung on 30/06/2017.
  */
 public class SinglePeriodAAM{
 
-    private static Logger logger =Logger.getLogger(SinglePeriodAAM.class);
+    private static Logger logger = Logger.getLogger(SinglePeriodAAM.class);
 
     static{
-        PropertyConfigurator.configure("./resources/log4j.properties");
+        PropertyConfigurator.configure(SinglePeriodAAM.class.getClassLoader().getResourceAsStream("log4j.properties"));
+
     }
 
     private List<Dmu> dmusT;
@@ -31,7 +32,7 @@ public class SinglePeriodAAM{
 
     private Double LL;
 
-    private SinglePeriodAAM(List<Dmu> dmusT,List<Dmu> dmusT1, String name) throws Exception{
+    private SinglePeriodAAM(List<Dmu> dmusT, List<Dmu> dmusT1, String name) throws Exception{
         this.dmusT = dmusT;
         this.dmusT1 = dmusT1;
         this.name = name;

@@ -4,8 +4,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.iecas.pda.model.Dmu;
 
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +36,7 @@ public class MultiPeriodAAM {
         YEARS.put(6,"2012");
         YEARS.put(7,"2013");
         YEARS.put(8,"2014");
-        PropertyConfigurator.configure("./resources/log4j.properties");
+        PropertyConfigurator.configure(MultiPeriodAAM.class.getClassLoader().getResourceAsStream("log4j.properties"));
     }
 
     public MultiPeriodAAM(List<List<Dmu>> dmuss, String name){

@@ -1,12 +1,12 @@
 package org.iecas.pda;
 
-import org.iecas.pda.io.file.CefFileReader;
+import org.iecas.pda.io.CefReader;
+import org.iecas.pda.io.db.CefDbReader;
 import org.iecas.pda.lp.EtaMax;
 import org.iecas.pda.lp.PhiMin;
 import org.iecas.pda.lp.ReciprocalDea;
 import org.iecas.pda.model.Dmu;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,6 +14,7 @@ import java.util.stream.IntStream;
 
 import static java.lang.Math.log;
 import static java.lang.Math.sqrt;
+
 /**
  * Created by gaufung on 29/06/2017.
  */
@@ -71,8 +72,9 @@ public class LMDI {
         this.productionSumT1 = this.dmusT1.stream().mapToDouble(i->i.getProduction().getProduction()).sum();
         String yearT = this.name.split("-")[0];
         String yearT1 = this.name.split("-")[1];
-        this.cefT = new CefFileReader().read(yearT);
-        this.cefT1 = new CefFileReader().read(yearT1);
+        CefReader reader =new CefDbReader();
+        this.cefT = reader.read(yearT);
+        this.cefT1 = reader.read(yearT1);
     }
     private void initializeLL(){
         for(int i=0;i<provinceCount;i++){
