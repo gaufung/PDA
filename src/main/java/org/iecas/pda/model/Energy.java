@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by gaufung on 22/06/2017.
  */
-public class Energy  extends Factor {
+public class Energy  extends FactorBase {
     public Energy(String name, List<Double> energies){
         super(name, energies);
     }

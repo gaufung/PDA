@@ -4,24 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by gaufung on 22/06/2017.
+ * The base type of factor of pda model
+ * @author  Feng Gao
+ * @email guafung@outlook.com
  */
-public  abstract class Factor {
+public  abstract class FactorBase {
     protected String name;
     protected List<Double> components;
-    protected Integer size;
+    protected int size;
 
-    public Factor(String name, List<Double> components){
+    public FactorBase(String name, List<Double> components){
         this.name = name;
         this.components = components;
         this.size = this.components.size();
     }
-    public Factor(String name){
+    public FactorBase(String name){
         this.name = name;
         this.components = new ArrayList<>();
-    }
-
-    public String getName() {
-        return this.name;
     }
 }

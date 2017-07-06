@@ -3,7 +3,7 @@ package org.iecas.pda.model;
 /**
  * Created by gaufung on 22/06/2017.
  */
-public class Production extends Factor {
+public class Production extends FactorBase {
     private  double production;
     public Production(String name, double production){
         super(name);
