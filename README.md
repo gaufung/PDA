@@ -7,6 +7,7 @@ The project is about *PDA* which is related model about statistic, forecast and 
 + Data I/O
 + Linear Programming
 + Indexes Calculating
++ ORM framework
 
 # 2 Dependencies
 This java project is organized by **maven** tool, so all dependencies are listed in `pom.xml` file.
@@ -14,6 +15,7 @@ This java project is organized by **maven** tool, so all dependencies are listed
 + joptimizer: A open source optimization library.
 + log4j: A frequently-used log component.
 + junit: A well-know java unit test component;
++ hibernate: A ORM(Object Relationship Mapping) framewrok
 
 # 3 Files Organization
 + org.iecas.pda.model: Contains all models which represent Co2, Energy, Production and Dmu(decision making unit).
