@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.iecas.pda.model.Dmu;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 /**
  * Created by gaufung on 02/07/2017.
  */
-public class MultiPeriodAAM {
+public class MultiPeriodAAM implements Serializable{
 
     private int periodCount;
     private List<List<Dmu>> dmuss;

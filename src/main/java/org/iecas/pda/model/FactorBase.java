@@ -1,5 +1,6 @@
 package org.iecas.pda.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * @author  Feng Gao
  * @email guafung@outlook.com
  */
-public  abstract class FactorBase {
+public  abstract class FactorBase  implements Serializable{
     protected String name;
     protected List<Double> components;
     protected int size;

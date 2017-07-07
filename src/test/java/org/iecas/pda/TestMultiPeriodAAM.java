@@ -60,8 +60,8 @@ public class TestMultiPeriodAAM  extends TestCase{
         assertEquals(actual-1, expect, 0.0001);
     }
     public void testYoe() throws Exception{
-        double actual = mpaam.getIndexT(8,"eue");
-        double expect = mpaam.eue().stream().mapToDouble(i->i).sum();
+        double actual = mpaam.getIndexT(8,"yoe");
+        double expect = mpaam.yoe().stream().mapToDouble(i->i).sum();
         assertEquals(actual-1, expect, 0.0001);
     }
     public void testYct() throws Exception{

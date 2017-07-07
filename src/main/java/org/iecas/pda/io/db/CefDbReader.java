@@ -3,8 +3,6 @@ package org.iecas.pda.io.db;
 import org.hibernate.Session;
 import org.iecas.pda.io.CefReader;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

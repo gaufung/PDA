@@ -33,11 +33,11 @@ public class DmuReaderFactory implements DmuReader {
         return dmus;
     }
 
-    private DmuReaderFactory(String filePath) throws Exception{
-//        this.energyReader = new EnergyFileReader(filePath);
-//        this.productionReader = new ProductionFileReader(filePath);
-//        this.co2Reader = new Co2FileReader(filePath);
-    }
+//    private DmuReaderFactory(String filePath) throws Exception{
+////        this.energyReader = new EnergyFileReader(filePath);
+////        this.productionReader = new ProductionFileReader(filePath);
+////        this.co2Reader = new Co2FileReader(filePath);
+//    }
 
     private DmuReaderFactory() throws Exception{
         this.energyReader = new EnergyDbReader();
@@ -45,9 +45,9 @@ public class DmuReaderFactory implements DmuReader {
         this.co2Reader = new Co2DbReader();
     }
 
-    public static DmuReader readerFromFile(String filePath) throws Exception{
-        return new DmuReaderFactory(filePath);
-    }
+//    public static DmuReader readerFromFile(String filePath) throws Exception{
+//        return new DmuReaderFactory(filePath);
+//    }
 
     public static DmuReader readerFromDB() throws Exception{
         return new DmuReaderFactory();

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.iecas.pda.model.Dmu;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -14,12 +15,14 @@ import static java.lang.Math.sqrt;
 /**
  * Created by gaufung on 30/06/2017.
  */
-public class SinglePeriodAAM{
+public class SinglePeriodAAM implements Serializable{
 
     private static Logger logger = Logger.getLogger(SinglePeriodAAM.class);
 
     static{
-        PropertyConfigurator.configure(SinglePeriodAAM.class.getClassLoader().getResourceAsStream("log4j.properties"));
+        PropertyConfigurator.
+                configure(SinglePeriodAAM.class.getClassLoader().
+                        getResourceAsStream("log4j.properties"));
 
     }
 

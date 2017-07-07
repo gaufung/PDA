@@ -1,12 +1,13 @@
 package org.iecas.pda.model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by gaufung on 22/06/2017.
  */
-public class Co2 extends FactorBase {
+public class Co2 extends FactorBase implements Serializable {
     public Co2(String name, List<Double> co2s){
         super(name, co2s);
     }

@@ -7,6 +7,7 @@ import org.iecas.pda.lp.PhiMin;
 import org.iecas.pda.lp.ReciprocalDea;
 import org.iecas.pda.model.Dmu;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,7 +19,7 @@ import static java.lang.Math.sqrt;
 /**
  * Created by gaufung on 29/06/2017.
  */
-public class LMDI {
+public class LMDI implements Serializable{
 
     private List<Dmu> dmusT;
     private List<Dmu> dmusT1;

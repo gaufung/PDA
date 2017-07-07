@@ -1,12 +1,13 @@
 package org.iecas.pda.model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by gaufung on 22/06/2017.
  */
-public class Energy  extends FactorBase {
+public class Energy  extends FactorBase implements Serializable {
     public Energy(String name, List<Double> energies){
         super(name, energies);
     }
