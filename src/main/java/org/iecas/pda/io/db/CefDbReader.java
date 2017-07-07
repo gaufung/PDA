@@ -1,50 +1,33 @@
 package org.iecas.pda.io.db;
 
+import org.hibernate.Session;
 import org.iecas.pda.io.CefReader;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by gaufung on 06/07/2017.
  */
-public class CefDbReader extends ReaderBase implements CefReader {
-    public CefDbReader()throws Exception{
-        super();
-    }
+public class CefDbReader implements CefReader {
 
     @Override
     public Double[][] read(String year) throws Exception{
-        PREPAREDSTATEMENT = CONNECTION.prepareStatement("SELECT province,"+
-        "year,coal,refine_coal,other_coal,briquette,coke,coke_gas,other_gas,"+
-        "crude,petrol,kerosene,diesel,fuel,liquefied,refine_gas,gas,heat,electricity"+
-        " FROM industry.cef where year = ? ORDER BY id ASC");
-        PREPAREDSTATEMENT.setString(1,year);
-        ResultSet resultSet = PREPAREDSTATEMENT.executeQuery();
-        return parseResultSet(resultSet);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        List<CefDb> cefs = session.createQuery("FROM CefDb WHERE year=:year ORDER BY id ASC")
+                .setParameter("year",year).list();
+        session.getTransaction().commit();
+        Double[][] result = new Double[cefs.size()][];
+        for(int i =0;i<result.length;i++){
+            result[i]=cefs.get(i).components();
+        }
+        return result;
     }
 
-    private Double[][] parseResultSet(ResultSet resultSet){
-        Double[][] result = new Double[PROVINCE_COUNT][];
-        try{
-            int rowIndex = 0;
-            while (resultSet.next()){
-               Double[] row = new Double[ENERGY_NAME.length];
-               for(int i =0;i<ENERGY_NAME.length;i++){
-                   row[i]=resultSet.getDouble(ENERGY_NAME[i]);
-               }
-               result[rowIndex++] = row;
-            }
-        }catch (SQLException e){
-
-        }
-        finally {
-            return result;
-        }
-
-    }
 
     @Override
     public Map<String, Double[][]> read(String... years) throws Exception {

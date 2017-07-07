@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.iecas.pda.io.db.CefDb" table="cef">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="province" type="string">
+            <column name="province" length="10" />
+        </property>
+        <property name="year" type="string">
+            <column name="year" length="4" />
+        </property>
+        <property name="coal" type="double">
+            <column name="coal"/>
+        </property>
+        <property name="refineCoal" type="double">
+            <column name="refine_coal"/>
+        </property>
+        <property name="otherCoal" type="double">
+            <column name="other_coal"/>
+        </property>
+        <property name="briquette" type="double">
+            <column name="briquette"/>
+        </property>
+        <property name="coke" type="double">
+            <column name="coke"/>
+        </property>
+        <property name="cokeGas" type="double">
+            <column name="coke_gas"/>
+        </property>
+        <property name="otherGas" type="double">
+            <column name="other_gas"/>
+        </property>
+        <property name="crude" type="double">
+            <column name="crude"/>
+        </property>
+        <property name="petrol" type="double">
+            <column name="petrol"/>
+        </property>
+        <property name="kerosene" type="double">
+            <column name="kerosene"/>
+        </property>
+        <property name="diesel" type="double">
+            <column name="diesel"/>
+        </property>
+        <property name="fuel" type="double">
+            <column name="fuel"/>
+        </property>
+        <property name="liquefied" type="double">
+            <column name="liquefied"/>
+        </property>
+        <property name="refineGas" type="double">
+            <column name="refine_gas"/>
+        </property>
+        <property name="gas" type="double">
+            <column name="gas"/>
+        </property>
+        <property name="heat" type="double">
+            <column name="heat"/>
+        </property>
+        <property name="electricity" type="double">
+            <column name="electricity"/>
+        </property>
+    </class>
+    <class name="org.iecas.pda.io.db.ProductionDb" table="production">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="year" type="string">
+            <column name="year"/>
+        </property>
+        <property name="province" type="string">
+            <column name="province"/>
+        </property>
+        <property name="prod" type="double">
+            <column name="prod"/>
+        </property>
+    </class>
+    <class name="org.iecas.pda.io.db.Co2Db" table="co2">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="province" type="string">
+            <column name="province" length="10" />
+        </property>
+        <property name="year" type="string">
+            <column name="year" length="4" />
+        </property>
+        <property name="coal" type="double">
+            <column name="coal"/>
+        </property>
+        <property name="refineCoal" type="double">
+            <column name="refine_coal"/>
+        </property>
+        <property name="otherCoal" type="double">
+            <column name="other_coal"/>
+        </property>
+        <property name="briquette" type="double">
+            <column name="briquette"/>
+        </property>
+        <property name="coke" type="double">
+            <column name="coke"/>
+        </property>
+        <property name="cokeGas" type="double">
+            <column name="coke_gas"/>
+        </property>
+        <property name="otherGas" type="double">
+            <column name="other_gas"/>
+        </property>
+        <property name="crude" type="double">
+            <column name="crude"/>
+        </property>
+        <property name="petrol" type="double">
+            <column name="petrol"/>
+        </property>
+        <property name="kerosene" type="double">
+            <column name="kerosene"/>
+        </property>
+        <property name="diesel" type="double">
+            <column name="diesel"/>
+        </property>
+        <property name="fuel" type="double">
+            <column name="fuel"/>
+        </property>
+        <property name="liquefied" type="double">
+            <column name="liquefied"/>
+        </property>
+        <property name="refineGas" type="double">
+            <column name="refine_gas"/>
+        </property>
+        <property name="gas" type="double">
+            <column name="gas"/>
+        </property>
+        <property name="heat" type="double">
+            <column name="heat"/>
+        </property>
+        <property name="electricity" type="double">
+            <column name="electricity"/>
+        </property>
+    </class>
+    <class name="org.iecas.pda.io.db.EnergyDb" table="energy">
+        <id name="id" type="int" column="id">
+            <generator class="native"/>
+        </id>
+        <property name="province" type="string">
+            <column name="province" length="10" />
+        </property>
+        <property name="year" type="string">
+            <column name="year" length="4" />
+        </property>
+        <property name="coal" type="double">
+            <column name="coal"/>
+        </property>
+        <property name="refineCoal" type="double">
+            <column name="refine_coal"/>
+        </property>
+        <property name="otherCoal" type="double">
+            <column name="other_coal"/>
+        </property>
+        <property name="briquette" type="double">
+            <column name="briquette"/>
+        </property>
+        <property name="coke" type="double">
+            <column name="coke"/>
+        </property>
+        <property name="cokeGas" type="double">
+            <column name="coke_gas"/>
+        </property>
+        <property name="otherGas" type="double">
+            <column name="other_gas"/>
+        </property>
+        <property name="crude" type="double">
+            <column name="crude"/>
+        </property>
+        <property name="petrol" type="double">
+            <column name="petrol"/>
+        </property>
+        <property name="kerosene" type="double">
+            <column name="kerosene"/>
+        </property>
+        <property name="diesel" type="double">
+            <column name="diesel"/>
+        </property>
+        <property name="fuel" type="double">
+            <column name="fuel"/>
+        </property>
+        <property name="liquefied" type="double">
+            <column name="liquefied"/>
+        </property>
+        <property name="refineGas" type="double">
+            <column name="refine_gas"/>
+        </property>
+        <property name="gas" type="double">
+            <column name="gas"/>
+        </property>
+        <property name="heat" type="double">
+            <column name="heat"/>
+        </property>
+        <property name="electricity" type="double">
+            <column name="electricity"/>
+        </property>
+    </class>
+</hibernate-mapping>

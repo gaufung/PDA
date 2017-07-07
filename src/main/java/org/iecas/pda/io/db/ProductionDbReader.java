@@ -1,42 +1,23 @@
 package org.iecas.pda.io.db;
 
+import org.hibernate.Session;
 import org.iecas.pda.io.ProductionReader;
 import org.iecas.pda.model.Production;
-
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by gaufung on 06/07/2017.
  */
-public class ProductionDbReader extends ReaderBase implements ProductionReader {
-
-    public ProductionDbReader() throws Exception{
-
-    }
+public class ProductionDbReader implements ProductionReader {
 
     @Override
     public List<Production> read(String year) throws Exception{
-        PREPAREDSTATEMENT = CONNECTION.prepareStatement("SELECT province, prod "+
-        "FROM industry.production WHERE year = ? ORDER BY id ASC");
-        PREPAREDSTATEMENT.setString(1,year);
-        ResultSet resultSet = PREPAREDSTATEMENT.executeQuery();
-        return parseResultSet(resultSet);
-    }
-
-    private List<Production> parseResultSet(ResultSet resultSet) throws Exception{
-        List<Production> result = new ArrayList<>();
-        try{
-            while (resultSet.next()){
-                String provinceName = resultSet.getString("province");
-                Double prod = resultSet.getDouble("prod");
-                result.add(new Production(provinceName,prod));
-            }
-        }catch (Exception e){
-
-        }finally {
-            return result;
-        }
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        List<ProductionDb> produtions = session.createQuery("From ProductionDb where year=:year ORDER BY id ASC")
+                .setParameter("year",year).list();
+        session.getTransaction().commit();
+        return produtions.stream().map(db->new Production(db.getProvince(),db.getProd())).collect(Collectors.toList());
     }
 }
